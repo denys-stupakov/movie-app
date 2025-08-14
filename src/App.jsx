@@ -23,7 +23,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false)
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
 
-  use
+  useDebounce(() => setDebouncedSearchTerm(searchTerm), 500, [searchTerm])
   
   const fetchMovies = async (query = '') => {
     setIsLoading(true)
@@ -58,8 +58,8 @@ function App() {
   }
 
   useEffect(() => {
-    fetchMovies(searchTerm)
-  }, [searchTerm])
+    fetchMovies(debouncedSearchTerm)
+  }, [debouncedSearchTerm])
 
   return (
     <>
