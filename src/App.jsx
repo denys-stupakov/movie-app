@@ -2,7 +2,8 @@ import './App.css'
 import Search from './components/Search'
 import Spinner from './components/Spinner'
 import MovieCard from './components/MovieCard'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, use } from 'react'
+import { useDebounce } from 'react-use'
 
 const API_BASE_URL = 'https://api.themoviedb.org/3'
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY
@@ -19,10 +20,13 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
   const [movies, setMovies] = useState([])
-  const [isLoading, setisLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
 
+  use
+  
   const fetchMovies = async (query = '') => {
-    setisLoading(true)
+    setIsLoading(true)
     setErrorMessage('')
 
     try {
@@ -49,7 +53,7 @@ function App() {
       setErrorMessage('Failed to fetch movies. Please try again later.')
       console.log(error)
     } finally {
-      setisLoading(false)
+      setIsLoading(false)
     }
   }
 
