@@ -10,4 +10,3 @@ Built with React.js for the user interface, Appwrite for backend services, and s
 - **[Tailwind CSS](https://tailwindcss.com/)**
 
 👉 **Trending Movies Algorithm**: Displays trending movies based on a dynamic algorithm.
-and many more, including code architecture and reusability
