@@ -1,0 +1,14 @@
+@theme {
+  --color-primary: #0d0d0d;
+
+  --color-light-100: #cee3fb;
+  --color-light-200: #82bcff;
+
+  --color-gray-100: #9ca4ab;
+
+  --color-dark-100: #000000;
+
+  --font-dm-sans: DM Sans, sans-serif;
+
+  --breakpoint-xs: 480px;
+}
